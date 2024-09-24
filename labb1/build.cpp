@@ -14,7 +14,7 @@ void buildArrayIndex(std::ifstream &index_file);
 // std::ifstream file_L("/afs/kth.se/misc/info/kurser/DD2350/adk24/labb1/korpus
 //std::ifstream index_file ("/afs/kth.se/misc/info/kurser/DD2350/adk24/labb1/rawindex.txt");
 int main(int argc, char *argv[]) {
-    std::ifstream index_file("/afs/kth.se/misc/info/kurser/DD2350/adk24/labb1/rawindex.txt");
+    std::ifstream index_file("rawindex.txt");
     buildArrayIndex(index_file);
     return 0;
 }
