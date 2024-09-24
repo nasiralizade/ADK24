@@ -8,7 +8,7 @@
 #define ALPHABET "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÅÖ"
 #define green "\033[1;32m"
 #define reset "\033[0m"
-std::ifstream file_L("/afs/kth.se/misc/info/kurser/DD2350/adk24/labb1/korpus");
+std::ifstream file_L("korpus");
 static unsigned char u2l[256];
 
 void initialize() {
@@ -87,7 +87,7 @@ void my_print(const std::vector<int> &v, const std::string &w);
 //std::ifstream index_file ("/afs/kth.se/misc/info/kurser/DD2350/adk24/labb1/rawindex.txt");
 int main(int argc, char *argv[]) {
 	initialize();
-    std::ifstream index_file("/afs/kth.se/misc/info/kurser/DD2350/adk24/labb1/rawindex.txt");
+    std::ifstream index_file("rawindex.txt");
     //buildArrayIndex(index_file); // kör denna bara denna del för att skapa data.bin file utan search, annars kör utan den
     //return 0;
     std::ifstream inFile("data.bin", std::ios::binary);
