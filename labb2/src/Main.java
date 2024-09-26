@@ -22,7 +22,7 @@ public class Main {
     }
     return list;
   }
-
+/*
   public static void main(String args[]) throws IOException {
     if (parseArgs(args)) {
       System.exit(0);
@@ -48,10 +48,10 @@ public class Main {
     stdout.close();
     stdin.close();
   }
+*/
 
 
 
-/*
     public static void main(String[] args) throws IOException {
         String inputFilePath = "ordlista.utf8";
         String testFilePath = "mytest.indata";
@@ -90,7 +90,7 @@ public class Main {
             e.printStackTrace();
         }
     }
-*/
+
     private static boolean parseArgs(String[] args) {
         boolean inTestZone = false;
         boolean beenInTestZone = false;

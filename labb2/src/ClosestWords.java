@@ -9,64 +9,81 @@ import java.util.List;
 public class ClosestWords {
     List<String> closestWords = null;
     int closestDistance = -1;
+    String lastWord = "";
+    int MAX_VALUE = Integer.MAX_VALUE;
 
-/*
-    int partDist(String w1, String w2, int w1len, int w2len) {
-
-        int[][] d = new int[w1len + 1][w2len + 1];
-        for (int i = 0; i <= w1len; i++) {
-            d[i][0] = i;
+    int CommonPrefix(String w1, String w2) {
+        if (w2.isEmpty()) {
+            return 0; // No common prefix with an empty string
         }
-        for (int j = 0; j <= w2len; j++) {
-            d[0][j] = j;
-        }
-        for (int i = 1; i <= w1len; i++) {
-            for (int j = 1; j <= w2len; j++) {
-                int cost = w1.charAt(i - 1) == w2.charAt(j - 1) ? 0 : 1;
-                d[i][j] = Math.min(d[i - 1][j - 1] + cost,
-                        Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1));
+        int min = Math.min(w1.length(), w2.length());
+        for (int i = 0; i < min; i++) {
+            if (w1.charAt(i) != w2.charAt(i)) {
+                return i;
             }
         }
-        return d[w1len][w2len];
-    }
-    */
-int partDist(String w1, String w2, int w1len, int w2len) {
-
-    if (w1len > w2len) {
-        return partDist(w2, w1, w2len, w1len);
+        return min;
     }
 
-    int[] prev = new int[w1len + 1];
-    int[] curr = new int[w1len + 1];
+    /*
+        int partDist(String w1, String w2, int w1len, int w2len) {
 
-    for (int i = 0; i <= w1len; i++) {
-        prev[i] = i;
-    }
-
-    for (int j = 1; j <= w2len; j++) {
-        curr[0] = j;
-        for (int i = 1; i <= w1len; i++) {
-            int cost = (w1.charAt(i - 1) == w2.charAt(j - 1)) ? 0 : 1;
-            curr[i] = Math.min(Math.min(curr[i - 1] + 1, prev[i] + 1), prev[i - 1] + cost);
+            int[][] d = new int[w1len + 1][w2len + 1];
+            for (int i = 0; i <= w1len; i++) {
+                d[i][0] = i;
+            }
+            for (int j = 0; j <= w2len; j++) {
+                d[0][j] = j;
+            }
+            for (int i = 1; i <= w1len; i++) {
+                for (int j = 1; j <= w2len; j++) {
+                    int cost = w1.charAt(i - 1) == w2.charAt(j - 1) ? 0 : 1;
+                    d[i][j] = Math.min(d[i - 1][j - 1] + cost,
+                            Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1));
+                }
+            }
+            return d[w1len][w2len];
         }
-        // Swap prev and curr arrays
-        int[] temp = prev;
-        prev = curr;
-        curr = temp;
+        */
+    int partDist(String w1, String w2, int w1len, int w2len, int commonPrefixLen) {
+
+//        if (w1len > w2len) {
+//            return partDist(w2, w1, w2len, w1len, commonPrefixLen);
+//        }
+
+        int[] prev = new int[w1len + 1];
+        int[] curr = new int[w1len + 1];
+
+        for (int i = 0; i <= w1len; i++) {
+            prev[i] = i;
+        }
+
+        for (int j = 1; j <= w2len; j++) {
+            curr[0] = j;
+            for (int i = 1; i <= w1len; i++) {
+                int cost = (w1.charAt(i - 1) == w2.charAt(j - 1)) ? 0 : 1;
+                curr[i] = Math.min(Math.min(curr[i - 1] + 1, prev[i] + 1), prev[i - 1] + cost);
+            }
+            // Swap prev and curr arrays
+            int[] temp = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev[w1len];
     }
-    return prev[w1len];
-}
     /*int distance(String w1, String w2) {
       return partDist(w1, w2, w1.length(), w2.length());
     }*/
 
     int distance(String w1, String w2) {
+        int commonPrefixLen = CommonPrefix(w1, lastWord);
+        lastWord = w2;
         int lenDiff = Math.abs(w1.length() - w2.length());
         if (lenDiff > closestDistance && closestDistance != -1) {
-            return Integer.MAX_VALUE;
+            return MAX_VALUE;
         }
 
-        return partDist(w1, w2, w1.length(), w2.length());
+        return partDist(w1, w2, w1.length(), w2.length(), commonPrefixLen);
     }
 
     public ClosestWords(String w, List<String> wordList) {
