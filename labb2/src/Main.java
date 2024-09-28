@@ -54,6 +54,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String inputFilePath = "ordlista.utf8";
+        //String testFilePath = "test/testmedordlista.indata";
         String testFilePath = "mytest.indata";
 
         long t1 = System.currentTimeMillis();
