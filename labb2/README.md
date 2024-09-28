@@ -1,13 +1,17 @@
 # labb 2
 ## Uppgift
-Det givna Javaprogrammet löser visserligen ovanstående problem, men det tar timmar att få fram svaret. Du ska effektivisera programmet så att det klarar testfallen i large på en sekund och så att Kattis testfall klaras inom den tidsgräns som Kattis ger.
+Det givna Javaprogrammet lï¿½ser visserligen ovanstï¿½ende problem, men det tar timmar att fï¿½ fram svaret. Du ska effektivisera programmet sï¿½ att det klarar testfallen i large pï¿½ en sekund och sï¿½ att Kattis testfall klaras inom den tidsgrï¿½ns som Kattis ger.
 
-Teoriuppgifterna ger uppslag om olika sätt att effektivisera programmet.
+Teoriuppgifterna ger uppslag om olika sï¿½tt att effektivisera programmet.
 
-Ditt optimerade program ska ha samma in- och utmatning som det givna programmet och det måste fortfarande vara Java.
+Ditt optimerade program ska ha samma in- och utmatning som det givna programmet och det mï¿½ste fortfarande vara Java.
 
-Inför en effektivisering i taget och notera hur stor förbättring varje effektivisering ger. Vid redovisningen kommer ni att få redogöra för vilka effektiviseringar som haft störst inverkan och vilka som förbättrat mindre eller bara marginellt.
+Infï¿½r en effektivisering i taget och notera hur stor fï¿½rbï¿½ttring varje effektivisering ger. Vid redovisningen kommer ni att fï¿½ redogï¿½ra fï¿½r vilka effektiviseringar som haft stï¿½rst inverkan och vilka som fï¿½rbï¿½ttrat mindre eller bara marginellt.
 
-Algoritmen som beräknar editeringsavståndet ska använda dynamisk programmering. Beräkningsordningen ska väljas så att god minneslokalitet uppnås, det vill säga att läs-, skriv- och uppdateringsoperationer på dynprogmatrisen ska ligga så nära varandra som möjligt i datorns minne.
+Algoritmen som berï¿½knar editeringsavstï¿½ndet ska anvï¿½nda dynamisk programmering. Berï¿½kningsordningen ska vï¿½ljas sï¿½ att god minneslokalitet uppnï¿½s, det vill sï¿½ga att lï¿½s-, skriv- och uppdateringsoperationer pï¿½ dynprogmatrisen ska ligga sï¿½ nï¿½ra varandra som mï¿½jligt i datorns minne.
 
-Kattis känner till problemet som  [kth.adk.spelling](https://kth.kattis.com/courses/DD2350/adk24/assignments/sk5zfb/problems/kth.adk.spelling).
+Kattis kï¿½nner till problemet som  [kth.adk.spelling](https://kth.kattis.com/courses/DD2350/adk24/assignments/sk5zfb/problems/kth.adk.spelling).
+
+## Teoriuppgifter
+1. Vilka ï¿½r de tvï¿½ huvudkomponenterna i algoritmen som berï¿½knar editeringsavst
+2. 
